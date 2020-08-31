@@ -23,6 +23,9 @@ h1, h2, h3, h4, h5, h6 {
 main {
     flex: 1;
     margin: auto;
-    padding: 0;
-    width: 800px;
+    padding: 16px;
+    max-width: 800px;
+    text-align: justify;
+    text-align-last: left;
+    background-color: #dddddd;
 }
