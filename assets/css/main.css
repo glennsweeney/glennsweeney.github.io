@@ -4,6 +4,6 @@ body { margin: 0; padding: 0; display: flex; min-height: 100vh; flex-direction: 
 
 h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', sans-serif; }
 
-main { flex: 1; margin: auto; padding: 0; width: 800px; }
+main { flex: 1; margin: auto; padding: 16px; max-width: 800px; text-align: justify; text-align-last: left; background-color: #dddddd; }
 
 /*# sourceMappingURL=main.css.map */
