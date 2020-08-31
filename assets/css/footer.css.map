@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "footer.css",
+	"sources": [
+		"footer.scss"
+	],
+	"sourcesContent": [
+		"footer {\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    text-align: center;\n    background-color: #404040;\n    color: #ffffff;\n    width: 100%;\n    height: 5rem;\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,MAAM,CAAC,EACH,OAAO,EAAE,IAAI,EACb,eAAe,EAAE,YAAY,EAC7B,WAAW,EAAE,MAAM,EACnB,UAAU,EAAE,MAAM,EAClB,gBAAgB,EAAE,OAAO,EACzB,KAAK,EAAE,OAAO,EACd,KAAK,EAAE,IAAI,EACX,MAAM,EAAE,IAAI,GACf"
+}
