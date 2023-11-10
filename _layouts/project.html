@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<style>
+  .project-wrapper {
+    display: flex;
+  }
+
+  .project-content {
+    flex: 3;
+    padding: 20px;
+  }
+
+  aside {
+    flex: 1;
+    padding: 20px;
+    border-left: 1px solid #ccc;
+
+    position: sticky !important; /* added to make toc scroll with page */
+    float: right !important; /* added to make toc scroll with page */
+    top: 0;
+    right: 0;
+    padding-top: 1em !important; /* added to make toc scroll with page */
+    z-index: 10;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  ul li {
+    margin-bottom: 8px;
+  }
+</style>
+
+
+<div class="post project-wrapper">
+
+  <article class="post-content">
+
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title | escape }}</h1>
+    </header>
+
+    {{ content }}
+
+  </article>
+
+  <aside>
+    <h2>Page Contents</h2>
+    <ul id="tableOfContents"></ul>
+  </aside>
+
+</div>
+
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get all headers and subheaders
+    var headers = document.querySelectorAll('article h1, article h2, article h3, article h4, article h5');
+
+    // Get the table of contents element
+    var toc = document.getElementById('tableOfContents');
+
+    // Loop through headers and create a list item for each
+    headers.forEach(function (header) {
+      var listItem = document.createElement('li');
+      var anchor = document.createElement('a');
+
+      // Set the anchor's href to the header's id
+      anchor.href = '#' + header.id;
+
+      // Set the anchor's text to the header's text
+      anchor.textContent = header.textContent;
+
+      // Append the anchor to the list item
+      listItem.appendChild(anchor);
+
+      // Append the list item to the table of contents
+      toc.appendChild(listItem);
+    });
+  });
+</script>
