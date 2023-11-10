@@ -1,7 +1,8 @@
 ---
-layout: project
+layout: page
 title: Different Project
 description: This is another project.
+menubar_toc: true
 ---
 
 ## Sample header
