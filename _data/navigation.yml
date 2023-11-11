@@ -4,6 +4,6 @@
   link: /projects/
   dropdown: 
     - name: Test
-      link: /projects/another_page.html/
+      link: /projects/another_page/
     - name: Tester
-      link: /projects/test_page.html/
+      link: /projects/test_page/
