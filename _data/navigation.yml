@@ -1,9 +1,0 @@
-- name: About
-  link: /about/
-- name: Projects
-  link: /projects/
-  dropdown: 
-    - name: Test
-      link: /projects/another_page/
-    - name: Tester
-      link: /projects/test_page/
