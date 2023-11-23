@@ -11,5 +11,12 @@
     },
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "svelte.enable-ts-plugin": true,
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     }
 }
