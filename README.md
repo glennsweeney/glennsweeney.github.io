@@ -1,38 +1,38 @@
-# create-svelte
+# glennsweeney.github.io
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Getting Started
 
-## Creating a project
+1. Install Node.js:
 
-If you're seeing this, you've probably already done this step. Congrats!
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y ca-certificates curl gnupg
+   sudo mkdir -p /etc/apt/keyrings
+   curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+   NODE_MAJOR=20
+   echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+   sudo apt-get update
+   sudo apt-get install nodejs -y
+   ```
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+1. Install packages:
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+   ```bash
+   npm install
+   ```
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Run dev:
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+   ```bash
+   npm run dev -- --open
+   ```
 
 ## Building
 
-To create a production version of your app:
+1. Run build:
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+   ```bash
+   npm run build
+   ```
