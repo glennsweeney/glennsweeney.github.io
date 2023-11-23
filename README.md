@@ -1,60 +1,38 @@
-# Getting started
+# create-svelte
 
-[Guide](https://www.youtube.com/watch?v=5VBdyfGhs7A)
-[Source](https://joyofcode.xyz/sveltekit-project-structure)
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-1. create empty npm project:
+## Creating a project
 
-   ```
-   $ echo -e "{\"type\":\"module\",\"scripts\":{\"dev\":\"vite dev\",\"build\":\"vite build\",\"preview\":\"vite preview\"}}" > package.json
-   ```
+If you're seeing this, you've probably already done this step. Congrats!
 
-   We are using Vite for development, so we add some simple scripts.
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-1. Install Node dependencies for development:
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-   ```
-   $ npm install -D svelte @sveltejs/kit @sveltejs/adapter-auto vite
-   ```
+## Developing
 
-   We need vite because sveltekit is a vite plugin.
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-   We use adapter-static for static site generation. adapter-auto is an option for other backends.
+```bash
+npm run dev
 
-1. Create vite configuration:
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-   ```
-   echo -e "import {sveltekit} from \"@sveltejs/kit/vite\"\n\n/** @type {import('vite').UserConfig} */\nconst config={plugins:[sveltekit()]}\n\nexport default config" > vite.config.js
-   ```
+## Building
 
-   This enables the sveltekit plugin in Vite.
+To create a production version of your app:
 
-1. Create Svelte configuration:
+```bash
+npm run build
+```
 
-   ```
-   echo -e "import adapter from '@sveltejs/adapter-static'\nimport {vitePreprocess} from '@sveltejs/kit/vite'\n\n/** @type {import('@sveltejs/kit).config} */\nconst config={preprocess:vitePreprocess(),kit: {adapter:adapter()}}\n\nexport default config" > svelte.config.js
-   ```
+You can preview the production build with `npm run preview`.
 
-   Preprocessor - transforms .svelte files before sending to compiler. Vite handles Typescript, SCSS, etc.
-
-   Adapters - adapt Sveltekit to a deployment target. Cloudflare, Netlify, Vercel, NodeJS, ... all work.
-
-1. Create HTML template:
-
-   ```
-   mkdir src
-
-   echo '<head>%sveltekit.head%</head><body>%sveltekit.body%</body>' > src/app.html
-
-   ```
-
-   Sveltekit expects an HTML template - this is the absolute bare minimum (though we can certainly do better)
-
-1. Create initial route:
-
-   ```
-   mkdir src/routes
-   echo -e "<h1>Hello, World"'!'"</h1>" > src/routes/+page.svelte
-   ```
-
-   +page is a special route for the initial page of the site
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
