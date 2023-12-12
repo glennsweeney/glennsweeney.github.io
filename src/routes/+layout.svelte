@@ -1,29 +1,30 @@
 <script>
+	import Footer from '$lib/Footer.svelte';
+	import Header from '$lib/Header.svelte';
 	import '../default.css';
 </script>
 
-<nav>
-	<a href="/">Home</a>
-	<a href="/about">About</a>
-</nav>
+<Header />
 
-<header></header>
+<main>
+	<div class="contents-container">
+		<slot />
+	</div>
+</main>
 
-<slot />
-
-<footer></footer>
+<Footer />
 
 <style>
-	nav {
-		position: sticky;
-		top: 0px;
-		box-sizing: border-box;
-		background-color: gray;
-		padding-top: 0.5em;
-		padding-bottom: 0.5em;
+	main {
+		background-color: var(--background-color-default);
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
 	}
 
-	header {
-		display: flex;
+	.contents-container {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: var(--content-max-width);
 	}
 </style>

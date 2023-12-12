@@ -1,5 +1,13 @@
 # glennsweeney.github.io
 
+## Design Guidelines
+
+- Fonts and spacing in rem
+- Padding and horizontal margin in px
+- Text vertical margin in rem
+- Media queries are not phone/tablet/laptop/monitor, but a measure of available space
+- Consider page visiblity both with zoom at or over 200%, as well as an increased default font size!
+
 ## Getting Started
 
 1. Install Node.js:

@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wdth,wght@85..100,300..600&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890%20%21%22%23%24%25%26%27%28%29%2A%2B%2C%2D%2E%2F');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wdth,wght@85..100,200..600&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890%20%21%22%23%24%25%26%27%28%29%2A%2B%2C%2D%2E%2F');
+
+:root {
+    --background-color-default: #c0c0c0;
+    --background-color-highlight: #e0e0e0;
+    --background-color-lowlight: #a0a0a0;
+    --highlight-color: #d02020;
+    --header-max-width: 80rem;
+    --content-max-width: 60rem
+}
+
 
 /** Use alternative box model by default */
 html {
@@ -15,6 +25,7 @@ html {
 body {
     padding: 0em 0em 0em 0em;
     margin: 0em 0em 0em 0em;
+    background-color: var(--background-color-lowlight);
 }
 
 
