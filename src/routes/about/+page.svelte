@@ -2,11 +2,10 @@
 </script>
 
 <h1>I am a level one heading</h1>
+
+I have a lot of thoughts on the subject, and I am going to share them with you.
+
 <h2>I am a level two heading</h2>
-<h3>I am a level three heading</h3>
-<h4>I am a level four heading</h4>
-<h5>I am a level five heading</h5>
-<h6>I am a level six heading</h6>
 
 <p>
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et augue gravida, tincidunt dolor
@@ -17,6 +16,8 @@
 	gravida malesuada diam, vel vulputate massa interdum nec. Nulla lectus sem, maximus at interdum
 	sit amet, porta in mauris.
 </p>
+
+<h2>I am another level two heading</h2>
 
 <p>
 	Morbi maximus imperdiet diam, non tincidunt metus bibendum vel. Sed cursus tincidunt enim et
@@ -30,6 +31,8 @@
 	viverra sapien. Phasellus tempus mauris et urna ullamcorper accumsan.
 </p>
 
+<h3>I am a level three heading</h3>
+
 <p>
 	Donec tincidunt bibendum arcu, sit amet mollis sapien interdum sed. Ut molestie mattis tellus, et
 	sollicitudin massa eleifend eget. Pellentesque aliquam fringilla neque, in consectetur elit congue
@@ -39,6 +42,23 @@
 	mauris scelerisque semper.
 </p>
 
+<h2>Let's go back to level two now, shall we?</h2>
+
+It would be weird to stack headings without any text in between.
+
+<h3>I am a level three heading</h3>
+
+<p>
+	Donec tincidunt bibendum arcu, sit amet mollis sapien interdum sed. Ut molestie mattis tellus, et
+	sollicitudin massa eleifend eget. Pellentesque aliquam fringilla neque, in consectetur elit congue
+	nec. Quisque auctor, arcu non fermentum condimentum, magna diam cursus felis, eget rutrum leo leo
+	eget enim. Vivamus dui orci, condimentum et semper nec, vulputate non odio. Morbi facilisis in
+	nibh eu fermentum. Vivamus in odio sit amet turpis porttitor imperdiet ac id justo. Ut bibendum ac
+	mauris scelerisque semper.
+</p>
+
+<h4>I am a level four heading</h4>
+
 <p>
 	Duis rhoncus ullamcorper lectus ac fermentum. Nullam venenatis tortor at augue pulvinar euismod.
 	Maecenas condimentum pretium metus, ut pretium dolor lobortis quis. Proin quis elit lobortis,
@@ -46,6 +66,8 @@
 	viverra eu malesuada orci. Sed scelerisque tellus vitae erat mollis, sit amet molestie justo
 	dignissim. Proin massa magna, commodo sed maximus ac, porta ut metus.
 </p>
+
+<h5>I am a level five heading</h5>
 
 <p>
 	Donec consectetur sem arcu, nec sollicitudin orci mollis ut. Phasellus vitae fermentum lectus.
@@ -59,5 +81,6 @@
 	purus cursus nunc, eu aliquet massa mauris sed mauris.
 </p>
 
-<style>
-</style>
+<h6>I am a level six heading</h6>
+
+Yep, that's all folks.

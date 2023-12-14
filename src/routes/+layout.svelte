@@ -6,25 +6,26 @@
 
 <Header />
 
-<main>
-	<div class="contents-container">
+<div class="main-background">
+	<main>
 		<slot />
-	</div>
-</main>
+	</main>
+</div>
 
 <Footer />
 
 <style>
-	main {
-		background-color: var(--background-color-default);
-		margin-left: auto;
-		margin-right: auto;
+	.main-background {
+		background-color: yellow;
 		width: 100%;
 	}
 
-	.contents-container {
+	main {
 		margin-left: auto;
 		margin-right: auto;
 		max-width: var(--content-max-width);
+
+		/* Prevent margin collapse by absorbing top and bottom margin into main */
+		overflow: auto;
 	}
 </style>

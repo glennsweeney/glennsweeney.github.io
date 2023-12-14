@@ -7,6 +7,6 @@
 		text-align: center;
 		padding-top: 1.5rem;
 		padding-bottom: 1.5rem;
-		background-color: var(--background-color-lowlight);
+		background-color: green;
 	}
 </style>

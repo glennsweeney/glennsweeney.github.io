@@ -1,78 +1,103 @@
-<header>
-	<!-- The container is used to force max content width within the header -->
-	<div class="header-container">
-		<div class="logo-container">
-			<a class="logo" href="/">
-				<span>Glenn Sweeney</span>
-			</a>
-		</div>
-		<nav>
-			<ul>
-				<li><a href="/about">About</a></li>
-				<li><a href="/projects">Projects</a></li>
-				<li><a href="/gallery">Gallery</a></li>
-				<li><a href="/demo">Demo</a></li>
-			</ul>
-		</nav>
+<div class="title-background">
+	<div class="title">
+		<a class="logo" href="/"> Glenn Sweeney </a>
 	</div>
-</header>
+</div>
+<div class="header-background">
+	<header>
+		<div class="header-left-container">
+			<nav>
+				<ul>
+					<li><a href="/about">About</a></li>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/gallery">Gallery</a></li>
+					<li><a href="/demo">Demo</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="header-right-container">
+			<span>Placeholder</span>
+		</div>
+	</header>
+</div>
 
 <style>
-	header {
-		background-color: var(--background-color-lowlight);
+	.title-background {
+		width: 100%;
+		background-color: red;
+		padding-top: 2rem;
+		padding-bottom: 1rem;
 	}
 
-	.header-container {
-		display: flex;
-		justify-content: flex-start;
+	.title {
+		/* Center the title */
 		margin-left: auto;
 		margin-right: auto;
 		max-width: var(--header-max-width);
-		width: 100%;
-	}
-
-	.logo-container {
-		margin-top: auto;
-		margin-bottom: auto;
+		padding-left: 16px;
+		padding-right: 16px;
 	}
 
 	.logo {
-		font-size: 1.5rem;
+		font-size: 2.5rem;
+		font-variation-settings:
+			'wght' 300,
+			'wdth' 90;
+
+		/* Remove underline from links */
 		text-decoration: none;
 		color: inherit;
-		margin-right: 1.5rem;
 	}
 
-	.logo span {
-		font-variation-settings:
-			'wght' 500,
-			'wdth' 85;
-	}
+	.header-background {
+		width: 100%;
+		background-color: blue;
 
-	nav {
+		/* Stick to the top of the window when scrolling */
 		position: sticky;
-		top: 0px;
+		top: 0;
+	}
+
+	header {
+		/* Flexbox settings */
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		/* Center the header */
+		margin-left: auto;
+		margin-right: auto;
+		max-width: var(--header-max-width);
+
+		padding-left: 16px;
+		padding-right: 16px;
 	}
 
 	nav ul {
 		list-style-type: none;
-		padding: 0px;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		margin: 0;
 	}
 
 	nav ul li {
 		display: inline;
-		margin: 0 0 0 10px;
 	}
 
 	nav ul li a {
+		/* Remove underline from links */
 		text-decoration: none;
 		color: inherit;
+
+		/* Add padding and border radius to buttons */
 		padding: 10px;
 		border-radius: 6px;
 		display: inline-block;
 	}
 
 	nav ul li a:hover {
-		background-color: var(--highlight-color);
+		background-color: purple;
 	}
 </style>
