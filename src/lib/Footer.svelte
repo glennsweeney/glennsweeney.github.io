@@ -5,8 +5,10 @@
 <style>
 	footer {
 		text-align: center;
-		padding-top: 1.5rem;
-		padding-bottom: 1.5rem;
-		background-color: green;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		background-color: var(--detail-color);
+		padding-left: var(--min-border);
+		padding-right: var(--min-border);
 	}
 </style>
