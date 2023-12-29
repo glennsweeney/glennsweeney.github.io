@@ -39,6 +39,7 @@
 
 		padding-left: 16px;
 		padding-right: 16px;
+		padding-bottom: 2em;
 
 		/* Prevent margin collapse by absorbing top and bottom margin into main */
 		overflow: auto;
