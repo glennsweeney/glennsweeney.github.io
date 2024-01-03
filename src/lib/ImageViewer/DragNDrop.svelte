@@ -27,8 +27,7 @@
 	}
 
 	// Event listener for button click (trigger the hidden input)
-	function handleClick(event: Event) {
-		console.log('click');
+	function handleClick() {
 		fileInput.click();
 	}
 

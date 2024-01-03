@@ -1,4 +1,6 @@
 import { checkError } from './utils';
+import defaultVert from './glsl/default.vert';
+import defaultFrag from './glsl/default.frag';
 
 function loadShader(gl: WebGL2RenderingContext, type: number, source: string) {
 	const shader = gl.createShader(type);
@@ -55,34 +57,8 @@ function initShaderProgram(
 	return shaderProgram;
 }
 
-const vertexShaderSource = `
-attribute vec4 aVertexPosition;
-attribute vec2 aTextureCoordinate;
-
-varying highp vec2 vTextureCoordinate;
-
-void main() {
-    gl_Position = aVertexPosition;
-    vTextureCoordinate = aTextureCoordinate;
-}
-`;
-
-const fragmentShaderSource = `
-uniform sampler2D uSampler;
-
-varying highp vec2 vTextureCoordinate;
-
-void main() {
-    highp vec4 color = texture2D(uSampler, vTextureCoordinate);
-    highp vec3 rgb = color.rgb;
-    rgb = rgb / 255.0;
-    color = vec4(rgb, 1.0);
-    gl_FragColor = color;
-}
-`;
-
 export function initShaders(gl: WebGL2RenderingContext) {
-	const defaultShader = initShaderProgram(gl, vertexShaderSource, fragmentShaderSource);
+	const defaultShader = initShaderProgram(gl, defaultVert, defaultFrag);
 	if (!defaultShader || checkError(gl)) {
 		console.error('Failed to initialize default shader');
 		return null;
