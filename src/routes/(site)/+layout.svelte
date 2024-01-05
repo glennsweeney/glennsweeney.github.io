@@ -1,7 +1,7 @@
 <script>
 	import Footer from '$lib/Footer.svelte';
 	import Header from '$lib/Header.svelte';
-	import '../default.css';
+	import './default.css';
 </script>
 
 <!-- Use a flex container to ensure we can make space to push the footer to the bottom -->

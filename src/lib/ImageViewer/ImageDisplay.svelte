@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { initShaders } from './shaders';
 	import { initBuffers } from './buffers';
 	import { loadTexture } from './textures';
@@ -59,6 +59,16 @@
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 	}
 
+	// Function to resize the canvas
+	function resizeCanvas() {
+		const dpr = window.devicePixelRatio || 1;
+		canvas.width = canvas.clientWidth * dpr;
+		canvas.height = canvas.clientHeight * dpr;
+		if (gl) {
+			gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+		}
+	}
+
 	onMount(() => {
 		gl = canvas.getContext('webgl2');
 		if (!gl) {
@@ -77,8 +87,27 @@
 		activeShader = shaders.default;
 		activeBuffer = buffers.quad;
 
+		resizeCanvas();
+
+		window.addEventListener('resize', resizeCanvas);
+
 		draw(gl, activeShader, activeBuffer);
+	});
+
+	onDestroy(() => {
+		if (typeof window !== 'undefined') {
+			window.removeEventListener('resize', resizeCanvas);
+		}
 	});
 </script>
 
 <canvas bind:this={canvas}></canvas>
+
+<style>
+	canvas {
+		width: 100%;
+		height: 80vh;
+		display: block;
+		flex-grow: 1;
+	}
+</style>

@@ -1,7 +1,10 @@
-attribute vec4 aVertexPosition;
-attribute vec2 aTextureCoordinate;
+#version 300 es
+precision highp float;
 
-varying highp vec2 vTextureCoordinate;
+in vec4 aVertexPosition;
+in vec2 aTextureCoordinate;
+
+out vec2 vTextureCoordinate;
 
 void main() {
     gl_Position = aVertexPosition;
