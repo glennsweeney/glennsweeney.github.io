@@ -1,41 +1,43 @@
 # glennsweeney.github.io
 
-
 ## Environment
 
-1. Install [nvm](https://github.com/nvm-sh/)
+1. Install [nvm](https://github.com/nvm-sh/nvm)
 
 1. Install node:
-    ```bash
-    nvm install node
-    ```
 
+   ```bash
+   nvm install node
+   ```
 
 ## Project Setup
 
 1. Start a SvelteKit project ([docs](https://kit.svelte.dev/docs/creating-a-project))
 
-
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Install dependencies:
 
-```bash
-npm run dev
+   ```bash
+   npm install
+   ```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+2. Start the development server:
 
+   ```bash
+   npm run dev -- --open
+   ```
 
 ## Building
 
-To create a production version of your app:
+### Preview Version
+
+```bash
+npm run preview
+```
+
+### Production Version
 
 ```bash
 npm run build
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
