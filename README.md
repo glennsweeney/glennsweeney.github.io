@@ -6,9 +6,9 @@
 
 1. Install node:
 
-   ```bash
-   nvm install node
-   ```
+    ```bash
+    nvm install node
+    ```
 
 ## Project Setup
 
@@ -18,15 +18,15 @@
 
 1. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
 2. Start the development server:
 
-   ```bash
-   npm run dev -- --open
-   ```
+    ```bash
+    npm run dev -- --open
+    ```
 
 ## Building
 
