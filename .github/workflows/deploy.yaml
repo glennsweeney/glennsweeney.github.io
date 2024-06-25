@@ -1,8 +1,7 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Build and deploy to Github Pages
+name: GitHub Pages Deployment
 
+# Run on merges to main
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
 
@@ -18,7 +17,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
