@@ -1,13 +1,12 @@
 <script lang="ts">
-    import { createPopover, melt } from "@melt-ui/svelte";
+    import { createDropdownMenu, melt } from "@melt-ui/svelte";
 
-    // Popover for dropdown menu
     const {
-        elements: { trigger, content, overlay, close, arrow },
+        elements: { trigger, menu, item, separator, arrow },
+        builders: { createSubmenu, createMenuRadioGroup, createCheckboxItem },
         states: { open }
-    } = createPopover({
-        positioning: { placement: "bottom" },
-        preventScroll: false
+    } = createDropdownMenu({
+        loop: true
     });
 </script>
 
@@ -19,12 +18,12 @@
     >
 </button>
 {#if open}
-    <div use:melt={$content} class="hamburger">
+    <div use:melt={$menu} class="hamburger">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/engineering">Engineering</a></li>
-            <li><a href="/photography">Photography</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a use:melt={$item} href="/">Home</a></li>
+            <li><a use:melt={$item} href="/engineering">Engineering</a></li>
+            <li><a use:melt={$item} href="/photography">Photography</a></li>
+            <li><a use:melt={$item} href="/contact">Contact</a></li>
         </ul>
     </div>
 {/if}
@@ -38,6 +37,20 @@
             "wdth" 100,
             "wght" 400;
         font-variant: small-caps;
+    }
+
+    li {
+        border-radius: 4px;
+        padding: 0.25rem 1rem 0.25rem 0.5rem;
+        margin: 0.25rem;
+    }
+
+    li + li {
+        margin-top: 0.25rem;
+    }
+
+    li:hover {
+        background-color: var(--layer1-color);
     }
 
     svg {
@@ -58,5 +71,11 @@
         list-style: none;
         padding: 0;
         margin: 0;
+    }
+
+    .hamburger {
+        border-color: var(--border-color);
+        border: 1px solid;
+        border-radius: 8px;
     }
 </style>
