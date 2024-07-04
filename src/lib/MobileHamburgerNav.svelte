@@ -2,8 +2,7 @@
     import { createDropdownMenu, melt } from "@melt-ui/svelte";
 
     const {
-        elements: { trigger, menu, item, separator, arrow },
-        builders: { createSubmenu, createMenuRadioGroup, createCheckboxItem },
+        elements: { trigger, menu, item },
         states: { open }
     } = createDropdownMenu({
         loop: true
