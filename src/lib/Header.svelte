@@ -2,6 +2,8 @@
     import { onMount } from "svelte";
     import { headerHeight } from "../stores/header";
 
+    import MobileHamburgerNav from "./MobileHamburgerNav.svelte";
+
     // Publish the full header size, including margin, to allow other components to position themselves correctly.
     let headerElement: HTMLElement;
     onMount(() => {
@@ -20,13 +22,6 @@
             window.removeEventListener("resize", updateHeight);
         };
     });
-
-    // Handle the hamburger dropdown for mobile display
-    let isHamburgerOpen = false;
-    function toggleHamburger() {
-        isHamburgerOpen = !isHamburgerOpen;
-        console.log(isHamburgerOpen);
-    }
 </script>
 
 <header bind:this={headerElement}>
@@ -44,21 +39,7 @@
     </nav>
 
     <nav class="responsive-narrow">
-        <button on:click={toggleHamburger}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                ><path d="M0 0h24v24h-24z" fill="none" /><path
-                    d="M4 6h16v2h-16v-2zm0 5h16v2h-16v-2zm16 7h-16v-2h16v2z"
-                /></svg
-            >
-        </button>
-        <div class:hamburger-visible={isHamburgerOpen} class="hamburger">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/engineering">Engineering</a></li>
-                <li><a href="/photography">Photography</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </div>
+        <MobileHamburgerNav />
     </nav>
 </header>
 
@@ -107,37 +88,6 @@
             "wdth" 100,
             "wght" 400;
         font-variant: small-caps;
-    }
-
-    svg {
-        width: 2rem;
-        height: 2rem;
-        display: block;
-    }
-
-    button {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-    }
-
-    .responsive-narrow ul {
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    /* Hamburger menu */
-
-    .hamburger {
-        display: none;
-    }
-
-    .hamburger-visible {
-        /* Apply selectively to show the hamburger menu */
-        display: block;
     }
 
     /* Responsive Width */
