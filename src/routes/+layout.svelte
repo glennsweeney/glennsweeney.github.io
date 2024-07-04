@@ -34,6 +34,9 @@
 <style>
     :root {
         --bg-color: #f8f8f8;
+        --layer1-color: #e8e8e8;
+        --layer2-color: #d8d8d8;
+        --border-color: #666666;
         --font-color: #202020;
     }
 
