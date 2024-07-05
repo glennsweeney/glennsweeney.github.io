@@ -3,10 +3,7 @@
     import { createDropdownMenu, melt } from "@melt-ui/svelte";
 
     const {
-        elements: {
-            trigger,
-            menu
-        } /* TODO: We're not using the item element, which may be an issue! */,
+        elements: { trigger, menu, item },
         states: { open }
     } = createDropdownMenu({
         positioning: {
@@ -14,6 +11,8 @@
         },
         loop: true
     });
+
+    console.log(item);
 </script>
 
 <button use:melt={$trigger}>
@@ -25,7 +24,7 @@
 </button>
 {#if open}
     <nav use:melt={$menu} class="responsive-narrow">
-        <NavContents paddingDirection="v" --hover-color="var(--bg-color)" />
+        <NavContents element={item} paddingDirection="v" --hover-color="var(--bg-color)" />
     </nav>
 {/if}
 

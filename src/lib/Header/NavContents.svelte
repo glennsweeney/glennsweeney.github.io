@@ -1,12 +1,18 @@
 <script lang="ts">
+    import { type AnyMeltElement, emptyMeltElement, melt } from "@melt-ui/svelte";
+
     export let paddingDirection: string = "h";
+
+    // See https://github.com/melt-ui/melt-ui/issues/974 - as of 7/4/2024 this workaround is necessary.
+    export let element: AnyMeltElement | undefined = undefined;
+    $: meltElement = element ?? emptyMeltElement;
 </script>
 
 <ul class={paddingDirection}>
-    <li><a href="/">Home</a></li>
-    <li><a href="/engineering">Engineering</a></li>
-    <li><a href="/photography">Photography</a></li>
-    <li><a href="/contact">Contact</a></li>
+    <li use:melt={$meltElement}><a href="/">Home</a></li>
+    <li use:melt={$meltElement}><a href="/engineering">Engineering</a></li>
+    <li use:melt={$meltElement}><a href="/photography">Photography</a></li>
+    <li use:melt={$meltElement}><a href="/contact">Contact</a></li>
 </ul>
 
 <style>
