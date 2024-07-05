@@ -1,15 +1,9 @@
 <script lang="ts">
     import Header from "$lib/Header/Header.svelte";
     import Footer from "$lib/Footer.svelte";
-    import { headerHeight } from "$lib/Header/header";
-    import { get } from "svelte/store";
 
-    let usedHeight: Number; // = get(headerHeight);
+    let usedHeight: Number;
     let contentHeight;
-
-    // $: headerHeight.subscribe((value) => {
-    //     usedHeight = value;
-    // });
 
     $: contentHeight = "calc(100vh - " + usedHeight + "px)";
 </script>
@@ -24,7 +18,7 @@
     />
 </svelte:head>
 
-<Header bind:qqq={usedHeight} />
+<Header bind:headerHeight={usedHeight} />
 <div class="mainpage-sizer" style="min-height: {contentHeight};">
     <slot />
 </div>
