@@ -1,8 +1,10 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { headerHeight } from "../stores/header";
+    import { headerHeight } from "../stores/header.js";
 
     import MobileHamburgerNav from "./MobileHamburgerNav.svelte";
+
+    export let qqq: Number;
 
     // Publish the full header size, including margin, to allow other components to position themselves correctly.
     let headerElement: HTMLElement;
@@ -13,6 +15,7 @@
             const marginTop = parseFloat(style.marginTop);
             const marginBottom = parseFloat(style.marginBottom);
             headerHeight.set(contentHeight + marginTop + marginBottom);
+            qqq = contentHeight + marginTop + marginBottom;
         };
         updateHeight();
 
@@ -26,7 +29,7 @@
 
 <header bind:this={headerElement}>
     <div class="logo">
-        <h1>Glenn Sweeney</h1>
+        <h1><span>Glenn</span> <span>Sweeney</span></h1>
     </div>
     <div class="gap"></div>
     <nav class="responsive-wide">
@@ -38,9 +41,9 @@
         </ul>
     </nav>
 
-    <nav class="responsive-narrow">
+    <div class="responsive-narrow">
         <MobileHamburgerNav />
-    </nav>
+    </div>
 </header>
 
 <style>
@@ -48,18 +51,21 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 0;
-        padding: 1.5rem;
+        margin: 1.5rem;
+        padding: 0;
         box-sizing: border-box;
     }
 
     h1 {
         margin: 0;
         padding: 0;
-        font-variation-settings:
-            "wdth" 95,
-            "wght" 400;
-        font-variant: small-caps;
+    }
+
+    span {
+        display: inline-block; /* required for ::first-letter to work */
+    }
+    span::first-letter {
+        font-variation-settings: "wght" 400;
     }
 
     .logo {
@@ -77,37 +83,42 @@
 
     .responsive-wide li + li {
         /* Pad only elements preceded by another list element */
-        padding-left: 1.5rem;
+        margin-left: 1.5rem;
     }
 
     a {
-        text-decoration: none;
+        display: inline-block; /* required for ::first-letter to work */
+        text-decoration: none; /* Remove underline */
         color: var(--font-color);
-        font-weight: 400;
+        font-variant: small-caps;
+        font-size: 1.2rem;
         font-variation-settings:
             "wdth" 100,
-            "wght" 400;
-        font-variant: small-caps;
+            "wght" 350;
+    }
+
+    a::first-letter {
+        font-variation-settings: "wght" 400;
     }
 
     /* Responsive Width */
 
-    nav.responsive-wide {
+    .responsive-wide {
         display: block;
     }
 
-    nav.responsive-narrow {
+    .responsive-narrow {
         display: none;
     }
 
     /* Media query for tablets */
     @media (max-width: 48rem) {
         /* Hide desktop nav and show mobile nav */
-        nav.responsive-wide {
+        .responsive-wide {
             display: none;
         }
 
-        nav.responsive-narrow {
+        .responsive-narrow {
             display: block;
         }
     }

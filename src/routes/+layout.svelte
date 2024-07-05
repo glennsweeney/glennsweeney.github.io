@@ -47,7 +47,57 @@
         font-family: "Open Sans", sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-variation-settings: "wdth" 100;
+        font-variation-settings:
+            "wdth" 100,
+            "wght" 400;
         font-display: swap;
+    }
+
+    :global(h1) {
+        font-variation-settings:
+            "wdth" 95,
+            "wght" 350;
+        font-variant: small-caps;
+        font-size: 2.4rem;
+    }
+
+    :global(h2) {
+        font-variation-settings:
+            "wdth" 95,
+            "wght" 350;
+        font-variant: small-caps;
+        font-size: 1.8rem;
+    }
+
+    :global(h3) {
+        font-variation-settings:
+            "wdth" 95,
+            "wght" 350;
+        font-variant: small-caps;
+        font-size: 1.4rem;
+    }
+
+    :global(h4) {
+        font-variation-settings:
+            "wdth" 95,
+            "wght" 350;
+        font-variant: small-caps;
+        font-size: 1.2rem;
+    }
+
+    :global(h5) {
+        font-variation-settings:
+            "wdth" 95,
+            "wght" 350;
+        font-variant: small-caps;
+        font-size: 1.1rem;
+    }
+
+    :global(h6) {
+        font-variation-settings:
+            "wdth" 95,
+            "wght" 350;
+        font-variant: small-caps;
+        font-size: 1rem;
     }
 </style>

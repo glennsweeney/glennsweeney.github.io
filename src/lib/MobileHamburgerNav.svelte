@@ -5,6 +5,9 @@
         elements: { trigger, menu, item },
         states: { open }
     } = createDropdownMenu({
+        positioning: {
+            placement: "bottom-end"
+        },
         loop: true
     });
 </script>
@@ -17,14 +20,14 @@
     >
 </button>
 {#if open}
-    <div use:melt={$menu} class="hamburger">
+    <nav use:melt={$menu} class="hamburger responsive-narrow">
         <ul>
             <li><a use:melt={$item} href="/">Home</a></li>
             <li><a use:melt={$item} href="/engineering">Engineering</a></li>
             <li><a use:melt={$item} href="/photography">Photography</a></li>
             <li><a use:melt={$item} href="/contact">Contact</a></li>
         </ul>
-    </div>
+    </nav>
 {/if}
 
 <style>
@@ -62,6 +65,8 @@
         background-color: transparent;
         border: none;
         cursor: pointer;
+        padding: 0;
+        margin: 0;
     }
 
     ul {
@@ -76,5 +81,16 @@
         border-color: var(--border-color);
         border: 1px solid;
         border-radius: 8px;
+    }
+
+    .responsive-narrow {
+        display: none;
+    }
+
+    /* Media query for tablets */
+    @media (max-width: 48rem) {
+        .responsive-narrow {
+            display: block;
+        }
     }
 </style>
