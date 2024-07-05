@@ -42,7 +42,7 @@
 
     li {
         border-radius: 4px;
-        padding: 0.25rem 0.25rem 0.25rem 0.25rem;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
         margin: 0.25rem;
     }
 
@@ -55,6 +55,6 @@
     }
 
     li:hover {
-        background-color: var(--layer1-color);
+        background-color: var(--hover-color, var(--layer1-color));
     }
 </style>

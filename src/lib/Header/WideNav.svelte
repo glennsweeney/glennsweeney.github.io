@@ -3,5 +3,5 @@
 </script>
 
 <nav>
-    <NavContents paddingDirection="h" />
+    <NavContents paddingDirection="h" --hover-color="var(--layer1-color)" />
 </nav>

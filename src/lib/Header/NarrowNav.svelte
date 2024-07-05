@@ -22,7 +22,7 @@
 </button>
 {#if open}
     <nav use:melt={$menu} class="responsive-narrow">
-        <NavContents paddingDirection="v" />
+        <NavContents paddingDirection="v" --hover-color="var(--bg-color)" />
     </nav>
 {/if}
 
@@ -42,9 +42,9 @@
     }
 
     nav {
-        border-color: var(--border-color);
-        border: 1px solid;
+        background-color: var(--layer1-color);
         border-radius: 8px;
+        padding: 0.5rem;
     }
 
     .responsive-narrow {
