@@ -2,7 +2,7 @@
     import Header from "$lib/Header/Header.svelte";
     import Footer from "$lib/Footer.svelte";
 
-    let usedHeight: Number;
+    let usedHeight: number;
     let contentHeight;
 
     $: contentHeight = "calc(100vh - " + usedHeight + "px)";

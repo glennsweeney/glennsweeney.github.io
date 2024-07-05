@@ -3,7 +3,10 @@
     import { createDropdownMenu, melt } from "@melt-ui/svelte";
 
     const {
-        elements: { trigger, menu, item },
+        elements: {
+            trigger,
+            menu
+        } /* TODO: We're not using the item element, which may be an issue! */,
         states: { open }
     } = createDropdownMenu({
         positioning: {

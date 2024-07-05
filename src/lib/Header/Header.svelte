@@ -3,7 +3,7 @@
     import WideNav from "./WideNav.svelte";
     import NarrowNav from "./NarrowNav.svelte";
 
-    export let headerHeight: Number = 0;
+    export let headerHeight: number = 0;
 
     // Track the full header size, including margin, to allow parent components to size themselves correctly.
     let headerElement: HTMLElement;
