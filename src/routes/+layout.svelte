@@ -40,11 +40,15 @@
 </svelte:head>
 
 <Header bind:headerHeight />
-<div class="mainpage-sizer" style={"min-height: " + $contentHeight + "px"}>
-    <slot />
-</div>
 
-<Footer />
+<!-- Only render past the header if we've calculated a contentHeight to avoid flicker -->
+{#if $contentHeight > 0}
+    <div class="mainpage-sizer" style={"min-height: " + $contentHeight + "px"}>
+        <slot />
+    </div>
+
+    <Footer />
+{/if}
 
 <style>
     :root {
