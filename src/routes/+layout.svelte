@@ -1,11 +1,32 @@
 <script lang="ts">
     import Header from "$lib/Header/Header.svelte";
     import Footer from "$lib/Footer.svelte";
+    import { onMount, onDestroy, setContext } from "svelte";
+    import { writable, type Writable } from "svelte/store";
+    import { browser } from "$app/environment";
 
-    let usedHeight: number;
-    let contentHeight;
+    let headerHeight: number = 0;
+    let contentHeight: Writable<number> = writable(0);
+    setContext("contentHeight", contentHeight);
 
-    $: contentHeight = "calc(100vh - " + usedHeight + "px)";
+    function handleResize() {
+        const viewportHeight = window.innerHeight;
+        $contentHeight = viewportHeight - headerHeight;
+        console.log("contentHeight:", contentHeight);
+    }
+
+    onMount(() => {
+        if (browser) {
+            handleResize();
+            window.addEventListener("resize", handleResize);
+        }
+    });
+
+    onDestroy(() => {
+        if (browser) {
+            window.removeEventListener("resize", handleResize);
+        }
+    });
 </script>
 
 <svelte:head>
@@ -18,8 +39,8 @@
     />
 </svelte:head>
 
-<Header bind:headerHeight={usedHeight} />
-<div class="mainpage-sizer" style="min-height: {contentHeight};">
+<Header bind:headerHeight />
+<div class="mainpage-sizer" style={"min-height: " + $contentHeight + "px"}>
     <slot />
 </div>
 
@@ -28,10 +49,11 @@
 <style>
     :root {
         --bg-color: #f8f8f8;
+        --bg-dark: #303030;
         --layer1-color: #e8e8e8;
         --layer2-color: #d8d8d8;
-        --border-color: #666666;
         --font-color: #202020;
+        --font-light: #d8d8d8;
     }
 
     :global(body) {
