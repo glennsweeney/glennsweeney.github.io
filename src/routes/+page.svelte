@@ -21,7 +21,7 @@
         font-variation-settings:
             "wght" 400,
             "wdth" 100;
-        font-size: 3.5rem;
+        font-size: calc(1rem + 5vw);
         color: var(--font-light);
     }
     h2::first-letter {
