@@ -21,15 +21,8 @@
             stroke-dasharray="20 49.78"
             stroke-dashoffset="0"
             d="M 0 10 C 0 1 1 0 10 0 C 19 0 20 1 20 10 C 20 19 19 20 10 20 C 1 20 0 19 0 10"
-            ><animate
-                attributeName="stroke-dashoffset"
-                calcMode="spline"
-                dur="5"
-                from="-69.78"
-                to="69.78"
-                repeatCount="indefinite"
-            ></animate></path
-        ></svg
+        >
+        </path></svg
     >
 </main>
 
@@ -44,5 +37,18 @@
     svg {
         width: 12rem;
         height: 12rem;
+    }
+
+    @keyframes dash {
+        from {
+            stroke-dashoffset: -69.78;
+        }
+        to {
+            stroke-dashoffset: 69.78;
+        }
+    }
+
+    path {
+        animation: dash 5s linear infinite;
     }
 </style>
