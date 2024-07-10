@@ -5,16 +5,25 @@
     import { writable, type Writable } from "svelte/store";
     import { browser } from "$app/environment";
 
-    let headerHeight: number = 0;
+    let headerHeight: Writable<number> = writable(0);
+    setContext("headerHeight", headerHeight);
+
     let contentHeight: Writable<number> = writable(0);
     setContext("contentHeight", contentHeight);
 
     function handleResize() {
         const viewportHeight = window.innerHeight;
-        $contentHeight = viewportHeight - headerHeight;
-        console.log("contentHeight:", contentHeight);
+        $contentHeight = viewportHeight - $headerHeight;
     }
 
+    // If headerHeight changes, update the contentHeight
+    headerHeight.subscribe(() => {
+        if (browser) {
+            handleResize();
+        }
+    });
+
+    // If the viewport resizes, update the contentHeight
     onMount(() => {
         if (browser) {
             handleResize();
@@ -39,7 +48,7 @@
     />
 </svelte:head>
 
-<Header bind:headerHeight />
+<Header bind:headerHeight={$headerHeight} />
 
 <!-- Only render past the header if we've calculated a contentHeight to avoid flicker -->
 {#if $contentHeight > 0}
@@ -58,6 +67,7 @@
         --layer2-color: #d8d8d8;
         --font-color: #202020;
         --font-light: #d8d8d8;
+        --max-width: 75rem;
     }
 
     :global(body) {
@@ -84,23 +94,7 @@
     :global(h2) {
         font-variation-settings:
             "wdth" 95,
-            "wght" 350;
-        font-variant: small-caps;
-        font-size: 1.8rem;
-    }
-
-    :global(h3) {
-        font-variation-settings:
-            "wdth" 95,
-            "wght" 350;
-        font-variant: small-caps;
-        font-size: 1.4rem;
-    }
-
-    :global(h4) {
-        font-variation-settings:
-            "wdth" 95,
-            "wght" 350;
+            setContext("headerHeight", headerHeight);
         font-variant: small-caps;
         font-size: 1.2rem;
     }

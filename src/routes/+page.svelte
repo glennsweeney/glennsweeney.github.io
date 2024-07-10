@@ -1,63 +1,93 @@
 <script lang="ts">
-    import { getContext } from "svelte";
+    import { onMount, onDestroy, getContext } from "svelte";
     import type { Writable } from "svelte/store";
+    import { browser } from "$app/environment";
+    let headerHeight: Writable<number> = getContext("headerHeight");
     let contentHeight: Writable<number> = getContext("contentHeight");
+
+    let nameText: HTMLElement;
+
+    function adjustFontSize() {
+        const maxFontSize = "5rem";
+        nameText.style.fontSize = maxFontSize;
+        const parentWidth = nameText.parentElement?.offsetWidth;
+        if (!parentWidth) {
+            return;
+        }
+
+        while (nameText.offsetWidth > parentWidth && parseFloat(nameText.style.fontSize) > 0) {
+            nameText.style.fontSize = `${parseFloat(nameText.style.fontSize) - 0.1}rem`;
+        }
+    }
+
+    onMount(() => {
+        if (browser) {
+            adjustFontSize();
+            window.addEventListener("resize", adjustFontSize);
+        }
+    });
+
+    // Cleanup to prevent memory leaks
+    onDestroy(() => {
+        if (browser) {
+            window.removeEventListener("resize", adjustFontSize);
+        }
+    });
 </script>
 
 <main>
-    <div class="top-separator" style="height: {$contentHeight / 7}px"></div>
-    <section class="engineering" style="height: {($contentHeight * 2) / 7}px">
-        <h2>Engineering.</h2>
+    <section class="hero" style="min-height: {$contentHeight - $headerHeight}px">
+        <h1 bind:this={nameText}><span>Glenn</span> <span>Sweeney</span></h1>
+        <h2>Engineer</h2>
+        <h2>·</h2>
+        <h2>Photographer</h2>
     </section>
-    <div class="middle-separator" style="height: {$contentHeight / 7}px"></div>
-    <section class="photography" style="height: {($contentHeight * 2) / 7}px">
-        <h2>Photography.</h2>
-    </section>
-    <div class="bottom-separator" style="height: {$contentHeight / 7}px"></div>
 </main>
 
 <style>
-    h2 {
+    h1 {
         font-variation-settings:
             "wght" 400,
             "wdth" 100;
-        font-size: calc(1rem + 5vw);
-        color: var(--font-light);
+        font-size: 5rem;
+        color: var(--font-color);
+        margin: 0rem 0 8rem 0;
+        white-space: nowrap;
+        text-shadow: 2px 2px 3px #707461; /* TODO: This color isn't exactly the same hue. */
     }
+
+    h1 span {
+        display: inline-block;
+    }
+
+    h1 span::first-letter {
+        font-variation-settings:
+            "wght" 450,
+            "wdth" 100;
+    }
+
+    h2 {
+        /* Font */
+        font-variation-settings:
+            "wght" 400,
+            "wdth" 100;
+        font-size: 1.8rem;
+        color: var(--font-light);
+        margin: 0;
+        line-height: 1.1;
+    }
+
     h2::first-letter {
         font-variation-settings:
             "wght" 500,
             "wdth" 100;
     }
-    .top-separator {
-        background-color: var(--bg-color);
-    }
-    .engineering {
-        background-color: var(--bg-dark);
+
+    .hero {
+        background-color: #999e85;
         display: flex;
-        flex-direction: row;
-        justify-content: left;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        padding-left: 12%;
-    }
-    .middle-separator {
-        background-color: var(--bg-color);
-    }
-    .photography {
-        background-color: var(--bg-dark);
-        display: flex;
-        flex-direction: row;
-        justify-content: right;
-        align-items: center;
-        padding-right: 12%;
-    }
-    .photography h2 {
-        display: inline;
-        float: right;
-        align-items: right;
-        text-align: right;
-    }
-    .bottom-separator {
-        background-color: var(--bg-color);
     }
 </style>
