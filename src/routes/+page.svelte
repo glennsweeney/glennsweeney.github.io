@@ -3,7 +3,6 @@
     import type { Writable } from "svelte/store";
     import { browser } from "$app/environment";
     let headerHeight: Writable<number> = getContext("headerHeight");
-    let contentHeight: Writable<number> = getContext("contentHeight");
 
     let nameText: HTMLElement;
 
@@ -36,7 +35,8 @@
 </script>
 
 <main>
-    <section class="hero" style="min-height: {$contentHeight - $headerHeight}px">
+    <!-- https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4 -->
+    <section class="hero" style="min-height: calc(100svh - {2 * $headerHeight}px">
         <h1 bind:this={nameText}><span>Glenn</span> <span>Sweeney</span></h1>
         <h2>Engineer</h2>
         <h2>·</h2>
@@ -51,7 +51,8 @@
             "wdth" 100;
         font-size: 5rem;
         color: var(--font-color);
-        margin: 0rem 0 8rem 0;
+        margin: 0rem 0 10vh 0;
+        padding: 0 2rem 0 2rem;
         white-space: nowrap;
         text-shadow: 2px 2px 3px #707461; /* TODO: This color isn't exactly the same hue. */
     }
