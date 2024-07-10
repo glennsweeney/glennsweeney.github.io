@@ -17,7 +17,7 @@
     }
 
     // If headerHeight changes, update the contentHeight
-    headerHeight.subscribe((value) => {
+    headerHeight.subscribe(() => {
         if (browser) {
             handleResize();
         }
