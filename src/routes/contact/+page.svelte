@@ -9,7 +9,7 @@
         font-variation-settings:
             "wght" 300,
             "wdth" 90;
-        font-size: 5vw;
+        font-size: calc(3vw + 0.5rem);
         color: rgb(150, 150, 150);
         margin-top: 6rem;
     }

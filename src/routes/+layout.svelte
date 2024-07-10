@@ -1,41 +1,11 @@
 <script lang="ts">
     import Header from "$lib/Header/Header.svelte";
     import Footer from "$lib/Footer.svelte";
-    import { onMount, onDestroy, setContext } from "svelte";
+    import { setContext } from "svelte";
     import { writable, type Writable } from "svelte/store";
-    import { browser } from "$app/environment";
 
     let headerHeight: Writable<number> = writable(0);
     setContext("headerHeight", headerHeight);
-
-    let contentHeight: Writable<number> = writable(0);
-    setContext("contentHeight", contentHeight);
-
-    function handleResize() {
-        const viewportHeight = window.innerHeight;
-        $contentHeight = viewportHeight - $headerHeight;
-    }
-
-    // If headerHeight changes, update the contentHeight
-    headerHeight.subscribe(() => {
-        if (browser) {
-            handleResize();
-        }
-    });
-
-    // If the viewport resizes, update the contentHeight
-    onMount(() => {
-        if (browser) {
-            handleResize();
-            window.addEventListener("resize", handleResize);
-        }
-    });
-
-    onDestroy(() => {
-        if (browser) {
-            window.removeEventListener("resize", handleResize);
-        }
-    });
 </script>
 
 <svelte:head>
@@ -50,9 +20,9 @@
 
 <Header bind:headerHeight={$headerHeight} />
 
-<!-- Only render past the header if we've calculated a contentHeight to avoid flicker -->
-{#if $contentHeight > 0}
-    <div class="mainpage-sizer" style={"min-height: " + $contentHeight + "px"}>
+<!-- Only render past the header if we've calculated a headerHeight to avoid flicker -->
+{#if $headerHeight > 0}
+    <div class="mainpage-sizer" style="min-height: calc(100svh - {$headerHeight}px">
         <slot />
     </div>
 
@@ -94,7 +64,23 @@
     :global(h2) {
         font-variation-settings:
             "wdth" 95,
-            setContext("headerHeight", headerHeight);
+            "wght" 350;
+        font-variant: small-caps;
+        font-size: 1.8rem;
+    }
+
+    :global(h3) {
+        font-variation-settings:
+            "wdth" 95,
+            "wght" 350;
+        font-variant: small-caps;
+        font-size: 1.4rem;
+    }
+
+    :global(h4) {
+        font-variation-settings:
+            "wdth" 95,
+            "wght" 350;
         font-variant: small-caps;
         font-size: 1.2rem;
     }
@@ -113,5 +99,36 @@
             "wght" 350;
         font-variant: small-caps;
         font-size: 1rem;
+    }
+
+    /* Media query for tablets */
+    @media (max-width: 48rem) {
+        :global(body) {
+            font-size: 1rem;
+        }
+
+        :global(h1) {
+            font-size: 1.8rem;
+        }
+
+        :global(h2) {
+            font-size: 1.4rem;
+        }
+
+        :global(h3) {
+            font-size: 1.2rem;
+        }
+
+        :global(h4) {
+            font-size: 1.1rem;
+        }
+
+        :global(h5) {
+            font-size: 1.05rem;
+        }
+
+        :global(h6) {
+            font-size: 1rem;
+        }
     }
 </style>
