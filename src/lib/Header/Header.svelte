@@ -17,10 +17,18 @@
         };
         updateHeight();
 
-        window.addEventListener("resize", updateHeight);
+        const resizeObserver = new ResizeObserver((entries) => {
+            for (let entry of entries) {
+                if (entry.target === headerElement) {
+                    updateHeight();
+                }
+            }
+        });
+
+        resizeObserver.observe(headerElement);
 
         return () => {
-            window.removeEventListener("resize", updateHeight);
+            resizeObserver.disconnect();
         };
     });
 </script>
@@ -45,9 +53,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 1.5rem;
-        padding: 0;
+        margin: 1rem auto;
+        padding: 0 1.5rem;
         box-sizing: border-box;
+        max-width: var(--max-width);
     }
 
     h1 {

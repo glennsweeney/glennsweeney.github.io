@@ -18,6 +18,7 @@
 <style>
     a {
         display: inline-block; /* required for ::first-letter to work */
+        width: 100%;
         text-decoration: none; /* Remove underline */
         color: var(--font-color);
         font-variant: small-caps;
