@@ -33,11 +33,11 @@
         font-variation-settings:
             "wght" 300,
             "wdth" 100;
-        color: var(--font-color);
-        background-color: var(--layer1-color);
+        color: var(--font-dark);
+        background-color: var(--popout-light);
         padding: 1rem;
         border-radius: 0.5rem;
-        box-shadow: 0 0 1rem 0.5rem var(--layer2-color);
+        box-shadow: 0 0 1rem 0.5rem var(--bg-light-shadow);
     }
 
     footer {

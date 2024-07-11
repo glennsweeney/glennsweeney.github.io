@@ -24,7 +24,7 @@
 </button>
 {#if open}
     <nav use:melt={$menu} class="responsive-narrow">
-        <NavContents element={item} paddingDirection="v" --hover-color="var(--bg-color)" />
+        <NavContents element={item} paddingDirection="v" --hover-color="var(--bg-light)" />
     </nav>
 {/if}
 
@@ -44,7 +44,7 @@
     }
 
     nav {
-        background-color: var(--layer1-color);
+        background-color: var(--popout-light);
         border-radius: 8px;
         padding: 0.5rem;
     }

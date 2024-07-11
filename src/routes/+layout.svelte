@@ -31,19 +31,20 @@
 
 <style>
     :root {
-        --bg-color: #f8f8f8;
-        --bg-dark: #303030;
-        --layer1-color: #e8e8e8;
-        --layer2-color: #d8d8d8;
-        --font-color: #202020;
+        --bg-light: #f8f8f8;
+        --bg-light-shadow: #d8d8d8;
+        --popout-light: #e8e8e8;
+        --font-dark: #202020;
         --font-light: #d8d8d8;
         --max-width: 75rem;
+        --hero-color: #999e85;
+        --hero-shadow: #525544;
     }
 
     :global(body) {
         margin: 0;
-        background-color: var(--bg-color);
-        color: var(--font-color);
+        background-color: var(--bg-light);
+        color: var(--font-dark);
         font-family: "Open Sans", sans-serif;
         font-weight: 400;
         font-style: normal;

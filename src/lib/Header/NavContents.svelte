@@ -20,7 +20,7 @@
         display: inline-block; /* required for ::first-letter to work */
         width: 100%;
         text-decoration: none; /* Remove underline */
-        color: var(--font-color);
+        color: var(--font-dark);
         font-variant: small-caps;
         font-size: 1.2rem;
         font-variation-settings:
@@ -62,6 +62,6 @@
     }
 
     li:hover {
-        background-color: var(--hover-color, var(--layer1-color));
+        background-color: var(--hover-color, var(--popout-light));
     }
 </style>

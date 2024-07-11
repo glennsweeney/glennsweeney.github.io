@@ -39,7 +39,7 @@
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
-        background-color: var(--bg-color);
+        background-color: var(--bg-light);
         padding: 1.5rem 40px 1.5rem 40px;
     }
 

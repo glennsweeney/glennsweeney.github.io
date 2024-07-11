@@ -3,5 +3,5 @@
 </script>
 
 <nav>
-    <NavContents paddingDirection="h" --hover-color="var(--layer1-color)" />
+    <NavContents paddingDirection="h" --hover-color="var(--popout-light)" />
 </nav>

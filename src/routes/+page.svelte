@@ -50,11 +50,11 @@
             "wght" 400,
             "wdth" 100;
         font-size: 5rem;
-        color: var(--font-color);
+        color: var(--font-dark);
         margin: 0rem 0 10vh 0;
         padding: 0 2rem 0 2rem;
         white-space: nowrap;
-        text-shadow: 2px 2px 3px #707461; /* TODO: This color isn't exactly the same hue. */
+        text-shadow: 2px 2px 3px var(--hero-shadow); /* TODO: This color isn't exactly the same hue. */
     }
 
     h1 span {
@@ -68,7 +68,6 @@
     }
 
     h2 {
-        /* Font */
         font-variation-settings:
             "wght" 400,
             "wdth" 100;
@@ -85,7 +84,7 @@
     }
 
     .hero {
-        background-color: #999e85;
+        background-color: var(--hero-color);
         display: flex;
         flex-direction: column;
         justify-content: center;
