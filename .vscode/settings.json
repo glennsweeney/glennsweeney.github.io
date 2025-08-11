@@ -1,0 +1,17 @@
+{
+    "editor.formatOnSave": true,
+    "files.insertFinalNewline": true,
+    "workbench.tree.indent": 16,
+    "workbench.colorCustomizations": {
+        "tree.indentGuidesStroke": "#dddd00",
+        "tree.inactiveIndentGuidesStroke": "#555500"
+    },
+    "svelte.enable-ts-plugin": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+}
